@@ -80,7 +80,7 @@ function Home() {
         }}
       ></div>
 
-      <div style={{ position: 'relative', zIndex: 2, padding: '20px' }}>
+      <div style={{ position: 'relative', zgIndex: 2, padding: '20px' }}>
         {/* SECTION DE RECHERCHE */}
         <section className="search-section">
           <h2>Que voulez-vous cuisiner ?</h2>
