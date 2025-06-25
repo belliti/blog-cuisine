@@ -57,7 +57,7 @@ function Home() {
   return (
     <div
       style={{
-        backgroundImage: "url('/R.jpeg')",
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/R.jpeg'})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -67,7 +67,6 @@ function Home() {
         color: 'white',
       }}
     >
-      {/* luminosité sombre */}
       <div
         style={{
           position: 'absolute',
@@ -75,13 +74,12 @@ function Home() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(0,0,0,0.6)',
+          backgroundColor: 'rgba(0,0,0,0.2)',
           zIndex: 1,
         }}
       ></div>
 
-      <div style={{ position: 'relative', zgIndex: 2, padding: '20px' }}>
-        {/* SECTION DE RECHERCHE */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '20px' }}>
         <section className="search-section">
           <h2>Que voulez-vous cuisiner ?</h2>
           <div className="search-container">
@@ -95,13 +93,11 @@ function Home() {
           </div>
         </section>
 
-        {/* CONTENU PRINCIPAL */}
         <main className="main-content">
           <h1>Bienvenue sur mon blog de cuisine !</h1>
           <p>Découvrez des recettes savoureuses et faciles à réaliser chez vous.</p>
         </main>
 
-        {/* SECTION ARTICLE COMPLET */}
         <section className="article-section">
           <h2>Le Saviez-vous ?</h2>
           <p>
@@ -114,7 +110,6 @@ function Home() {
           </p>
         </section>
 
-        {/* SECTION MIAM & PARTAGE */}
         <section className="miam-partage-section">
           <h1>Miam & Partage</h1>
           <p>BLOG CULINAIRE QUI FAIT VOYAGER</p>
@@ -131,17 +126,28 @@ function Home() {
           </Link>
         </section>
 
-        {/* SECTION RECETTES POPULAIRES */}
         <section className="recipes-populaire-section">
           <h2>Nos recettes populaires</h2>
 
           {recetteSelectionnee ? (
-            <div style={{ backgroundColor: 'white', color: 'black', borderRadius: '10px', padding: '20px' }}>
+            <div
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+                borderRadius: '10px',
+                padding: '20px',
+              }}
+            >
               <h3>{recetteSelectionnee.title}</h3>
               <img
                 src={recetteSelectionnee.imageUrl}
                 alt={recetteSelectionnee.title}
-                style={{ width: '100%', maxWidth: '400px', borderRadius: '10px',justifyContent: 'center',  }}
+                style={{
+                  width: '100%',
+                  maxWidth: '400px',
+                  borderRadius: '10px',
+                  justifyContent: 'center',
+                }}
               />
               <p>{recetteSelectionnee.description}</p>
 
@@ -163,7 +169,10 @@ function Home() {
               </button>
             </div>
           ) : (
-            <div className="recipes-populaire-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            <div
+              className="recipes-populaire-grid"
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}
+            >
               {recettesFiltrees.map((recette) => (
                 <div
                   key={recette.id}
