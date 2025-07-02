@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: #444;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff9800;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e68900;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.ajouter-recette-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ajouter-recette-container h2 {
+  text-align: center;
+  color: #00ff80;
+  margin-bottom: 20px;
+}
+
+.ajouter-recette-container label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.ajouter-recette-container input,
+.ajouter-recette-container textarea {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.ajouter-recette-container button {
+  background-color: #ff9800;
+  color: white;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.ajouter-recette-container button:hover {
+  background-color: #00e61f;
+}
+.footer {
+  background-color: #4E342E;
+  color: #FFF3E0;
+  padding: 15px;
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
