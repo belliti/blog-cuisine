@@ -1,22 +1,16 @@
-//C’est un composant React qui peut servir de page d’accueil interactive.
-//Il a pour but de :
-//Afficher une liste de recettes (statiques ou venant d'une API).
-//Filtrer les recettes avec une barre de recherche (ce que tu viens de faire).
-// src/pages/Home.js
-
 // src/pages/Home.js
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// Importation des images utilisées dans la page d'accueil
+//  images utilisées dans la page d'accueil
 import crepeImage from '../OIP.jpeg';
 import maxresdefault from '../maxresdefault.jpg';
 import quicheImage from '../quiches(1).jpeg';
 import tiramisuImage from '../R (1).jpeg';
 import pouletImage from '../POULET (1).jpeg';
 
-// Déclaration du tableau de recettes
+//  tableau de recettes
 function Home() {
   const recettes = [
     {
@@ -87,7 +81,7 @@ function Home() {
               display: 'block',
             }}
           />
-
+{/* {section titre des crepes} */}
           <h2 style={{ color: '#5d4037' }}>Notre recette de pâte à crêpes simple et efficace</h2>
           <p style={{ fontStyle: 'italic' }}>
             "Conseils pour une pâte à crêpes parfaite"
