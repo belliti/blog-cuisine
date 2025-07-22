@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
@@ -8,27 +8,94 @@ import AjouterRecette from './pages/AjouterRecette';
 import CrepesDetail from './pages/CrepesDetail';
 import RecettesSucrees from './pages/RecettesSucrees';
 import RecetteSucreeDetail from './pages/RecetteSucreeDetail';
-import Apropos from './pages/Apropos'; // 👍 Bien importé
+import Apropos from './pages/Apropos';
+import Login from './pages/Login';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(!!token);
+  }, []);
+
   return (
     <>
-      <Navbar />
+      {isAuthenticated && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/recettes" element={<Recettes />} />
-        <Route path="/recette/:id" element={<RecetteDetail />} />
-        <Route path="/ajouter-recette" element={<AjouterRecette />} />
-        <Route path="/recette-crepes" element={<CrepesDetail />} />
-        <Route path="/recettes-sucrees" element={<RecettesSucrees />} />
-        <Route path="/recette-sucree/:id" element={<RecetteSucreeDetail />} />
-        <Route path="/apropos" element={<Apropos />} /> {/* ✅ Route ajoutée */}
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recettes"
+          element={
+            <PrivateRoute>
+              <Recettes />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recette/:id"
+          element={
+            <PrivateRoute>
+              <RecetteDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/ajouter-recette"
+          element={
+            <PrivateRoute>
+              <AjouterRecette />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recette-crepes"
+          element={
+            <PrivateRoute>
+              <CrepesDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recettes-sucrees"
+          element={
+            <PrivateRoute>
+              <RecettesSucrees />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recette-sucree/:id"
+          element={
+            <PrivateRoute>
+              <RecetteSucreeDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/apropos"
+          element={
+            <PrivateRoute>
+              <Apropos />
+            </PrivateRoute>
+          }
+        />
       </Routes>
 
-      <footer
-        style={{
-          backgroundColor: '#6D4C41', // ⚠️ corrigé (pas d'espace)
+      {isAuthenticated && (
+        <footer style={{
+          backgroundColor: '#6D4C41',
           color: '#FFF3E0',
           textAlign: 'center',
           padding: '1rem 0',
@@ -38,10 +105,10 @@ function App() {
           fontWeight: 'bold',
           fontSize: '1rem',
           zIndex: 1000,
-        }}
-      >
-        © 2025 Miam & Partage - Fait avec ❤ pour les gourmands
-      </footer>
+        }}>
+          © Itshak 2025 Miam & Partage - Fait avec ❤ pour les gourmands
+        </footer>
+      )}
     </>
   );
 }
