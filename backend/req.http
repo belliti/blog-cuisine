@@ -1,0 +1,45 @@
+### Test GET toutes les recettes
+GET http://localhost:5000/api/recettes
+Content-Type: application/json
+
+###
+
+### Test POST une recette
+POST http://localhost:5000/api/recettes
+Content-Type: application/json
+
+{
+  "titre": "Gâteau au chocolat",
+  "description": "Recette test",
+  "type": "sucre",
+  "ingredients": ["chocolat", "farine", "oeufs"],
+  "etapes": ["Mélanger", "Cuire 30 min"]
+}
+
+###
+
+### Test GET une recette spécifique
+GET http://localhost:5000/api/recettes/ID_DE_LA_RECETTE
+Content-Type: application/json
+
+###
+
+### Test POST pour créer un utilisateur (auth)
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "123456"
+}
+
+###
+
+### Test POST login utilisateur
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "123456"
+}
