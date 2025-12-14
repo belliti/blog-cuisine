@@ -11,7 +11,7 @@ export default function AjouterRecette() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/recettes', {
+      await axios.post('https://backend-blog-cuisine.onrender.com/api/recettes', {
         titre,
         description,
         type, // envoi du type obligatoire

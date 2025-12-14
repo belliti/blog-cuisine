@@ -10,12 +10,17 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
 
     try {
-     // const res = await fetch('https://backend-blog-cuisine.onrender.com/api/auth/login', {
-      const res = await fetch(`${process.env.REACT_APP_URLSERVER}/api/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.toLowerCase(), password }),
-      });
+      const res = await fetch(
+       ` ${process.env.REACT_APP_URLSERVER}/api/auth/login`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email.toLowerCase(),
+            password,
+          }),
+        }
+      );
 
       const data = await res.json();
 
@@ -27,8 +32,8 @@ function Login({ setIsAuthenticated }) {
         alert(data.message || 'Identifiants invalides');
       }
     } catch (error) {
-      console.error('Erreur de connexion:', error);
-      alert('Erreur réseau ou serveur inaccessible');
+      console.error(error);
+      alert('Erreur réseau ou serveur');
     }
   };
 
