@@ -1,11 +1,11 @@
 ### Test GET toutes les recettes
-GET http://localhost:5000/api/recettes
+GET https://backend-blog-cuisine.onrender.com/api/recettes
 Content-Type: application/json
 
 ###
 
 ### Test POST une recette
-POST http://localhost:5000/api/recettes
+POST https://backend-blog-cuisine.onrender.com/api/recettes
 Content-Type: application/json
 
 {
@@ -19,13 +19,13 @@ Content-Type: application/json
 ###
 
 ### Test GET une recette spécifique
-GET http://localhost:5000/api/recettes/ID_DE_LA_RECETTE
+GET https://backend-blog-cuisine.onrender.com/api/recettes/ID_DE_LA_RECETTE
 Content-Type: application/json
 
 ###
 
 ### Test POST pour créer un utilisateur (auth)
-POST http://localhost:5000/api/auth/register
+POST https://backend-blog-cuisine.onrender.com/api/auth/register
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 ###
 
 ### Test POST login utilisateur
-POST http://localhost:5000/api/auth/login
+POST https://backend-blog-cuisine.onrender.com/api/auth/login
 Content-Type: application/json
 
 {
